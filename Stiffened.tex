@@ -1,0 +1,112 @@
+	\begin{frame}
+		\frametitle{Poddajné systémy - Pohybové Rovnice}
+
+		\begin{equation*}
+			\bm{M}\bm{\dot{v}} + \bm{c} = \bm{\tau}
+			\;,\quad 
+			\bm{\tau} = \bm{p} + \bm{B}\bm{u}
+		\end{equation*}
+		Rozdělíme zrychlení na řízená zrychlení $\bm{\dot{v}}_c$ a poddajná zrychlení $\bm{\dot{v}}_s$. Stejně rozdělíme sloupce matice hmotnosti, což nám dovolí úpravu
+		\begin{equation*}
+			\bm{M}\bm{\dot{v}} = \bm{M}_{:c} \bm{\dot{v}}_c + \bm{M}_{:s} \bm{\dot{v}}_s
+		\end{equation*}
+		Vektor pasivních silových účinků v kinematických dvojicích můžeme rozdělit na akumulační a disipační členy
+		\begin{equation*}
+			\bm{p} = \bm{A}\bm{q} + \bm{D}\bm{v}
+		\end{equation*}
+		S výslednou pohybovou rovnicí
+		\begin{equation*}
+			\bm{M}_{:c} \bm{\dot{v}}_c + \bm{M}_{:s} \bm{\dot{v}}_s + \bm{c} = \bm{A}\bm{q} + \bm{D}\bm{v} + \bm{B}\bm{u}
+		\end{equation*}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Poddajné systémy - Poddajnost}
+		Vnímáme-li akumulační ůčinky v $i$-té kin. vazbě jako zobecněné síly způsobené deformací elementu MKP, kde uzlové posuvy jsou nahrazeny zobecněnými parametry $\bm{q}$
+		\begin{equation*}
+			\bm{A}_i\bm{q}_i
+			=
+			\int_{V} \bm{N}_i^T  \, \bm{\sigma}_i \, dV
+			\;,\quad 
+			\bm{\sigma}_i = \bm{E}_i \bm{\varepsilon}_i
+			\;,\quad 
+			\bm{\varepsilon}_i = \bm{N}_i \, \bm{q}_i 
+		\end{equation*}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Poddajné systémy - Poddajnost}
+		Když uvažujeme těleso jako tuhé, říkáme, že jeho odezva na změnu zatížení $\Delta\bm{\tau}$ je taková změna napětí $\Delta\bm{\sigma}$, která zamezí podstatné deformaci tělesa $\Delta\bm{\varepsilon} \approx \bm{0} \,,\; \bm{\dot{\varepsilon}} \approx \bm{0} \,,\; \bm{\ddot{\varepsilon}} \approx \bm{0}$
+		\\\vspace{1em}
+		Budeme-li chtít zanedbat okamžitý vliv poddajnosti v pohybové rovnici (na úrovni zrychlení) dosadíme $\bm{\dot{v}}_s = \bm{0}$, jehož splnění bude zajištěno fiktivní změnou ``poddajných'' parametrů $\Delta\bm{q}_s$ ($\bm{\sigma} \propto \bm{q}_s$).
+		\begin{equation*}
+			\bm{M}_{:c} \bm{\dot{v}}_c + \bm{c} = \bm{p} + \bm{A}_{:s} \Delta\bm{q}_s + \bm{B}\bm{u}
+		\end{equation*}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Poddajné systémy - Optimalizační problém}
+
+		\begin{itemize}
+			\item \textbf{Optimalizované parametry}\\
+			mezi optimalizované parametry zařadíme i volná zrychlení
+			\begin{equation*}
+				\bm{x} = \begin{bmatrix} \bm{u} \\ \Delta\bm{q}_s \end{bmatrix}
+			\end{equation*}
+			\item \textbf{Cílová funkce}\\
+			\begin{equation*}
+				\bm{P}
+				=
+				\begin{bmatrix}
+					\bm{1} & \bm{0} \\
+					\bm{0} & \bm{0}
+				\end{bmatrix}
+				\;,\quad
+				\bm{q} = \bm{0}
+			\end{equation*}
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}
+		\frametitle{Poddajné systémy - Optimalizační problém}
+		
+		\begin{itemize}
+			\item \textbf{Nerovnice přípustných řešení}\\
+			\begin{equation*}
+				\bm{a}
+				=
+				\begin{bmatrix}
+					\bm{\tau}_{eq} \\
+					\bm{u}_{min} \\
+					% \Delta\bm{q}_{s_{min}}
+					\bm{q}_{s_{min}} - \bm{q}_s
+				\end{bmatrix}
+				\;,\quad 
+				\bm{A}
+				=
+				\begin{bmatrix}
+					\bm{B} & \bm{A}_{:s} \\
+					\bm{1} & \bm{0} \\
+					\bm{0} & \bm{1}
+				\end{bmatrix}
+				\;,\quad
+				\bm{b}
+				=
+				\begin{bmatrix}
+					\bm{\tau}_{eq} \\
+					\bm{u}_{max} \\
+					% \Delta\bm{q}_{s_{max}}
+					\bm{q}_{s_{max}} - \bm{q}_s
+				\end{bmatrix}
+			\end{equation*}
+			kde
+			\begin{equation*}
+				\bm{\tau}_{eq} = \bm{M}_{:c} \bm{\dot{v}}_c + \bm{c} - \bm{p}
+			\end{equation*}
+			a
+			\begin{equation*}
+				\bm{E}_i\bm{N}_i : \bm{q}_i \mapsto \bm{\sigma}_i
+			\end{equation*}
+			pomocí kterého můžeme stanovit $\bm{q}_{s_{min}}$ a $\bm{q}_{s_{max}}$
+		\end{itemize}
+	\end{frame}
