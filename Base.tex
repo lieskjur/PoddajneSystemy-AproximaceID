@@ -1,4 +1,14 @@
 \begin{frame}
+	\frametitle{Kvadratické programování}
+	Úlohou je nalézt minimum kvatratické cílové funkce pro parametry $\bm{x}$ z množiny přípustných řešení popsané lineárními nerovnicemi.
+	\begin{align*}
+		\text{minimize:}& \quad \frac{1}{2}\bm{x}^T\!\bm{P}\bm{x} + \bm{q}^T\!\bm{x} \\ 
+		\text{subject to:}& \quad \bm{a} \leq \bm{A}\bm{x} \leq \bm{b}
+	\end{align*} \cite{osqp}
+	Kvadratické programování patří do kategorie konvexního programování, kde lokální minim cílové funkce je také minimem globálním. \cite{convex}
+\end{frame}
+
+\begin{frame}
 	\frametitle{Pohybové rovnice}
 	
 	\begin{equation*}
@@ -7,19 +17,11 @@
 	\end{equation*}
 	\begin{itemize}
 		\item [$\bm{M}$] - matice hmotnosti
-		\item [$\bm{\dot{v}}$] - vektor zrychlení
+		\item [$\bm{\dot{v}}$] - vektor nezávislých zrychlení
 		\item [$\bm{c}$] - vektor účinků dostředivého a corriolisova zrychlení
 		\item [$\bm{\tau}$] - silové účinky
 		\item [$\bm{p}$] - pasivní silové účinky
 		\item [$\bm{B}$] - manipulační matice
 		\item [$\bm{u}$] - vektor vstupů
 	\end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Kvadratické programování}
-	\begin{align*}
-		\text{minimize:}& \quad \frac{1}{2}\bm{x}^T\!\bm{P}\bm{x} + \bm{q}^T\!\bm{x} \\ 
-		\text{subject to:}& \quad \bm{a} \leq \bm{A}\bm{x} \leq \bm{b}
-	\end{align*}
 \end{frame}

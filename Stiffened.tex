@@ -6,24 +6,23 @@
 			\;,\quad 
 			\bm{\tau} = \bm{p} + \bm{B}\bm{u}
 		\end{equation*}
-		Rozdělíme zrychlení na řízená zrychlení $\bm{\dot{v}}_c$ a poddajná zrychlení $\bm{\dot{v}}_s$. Stejně rozdělíme sloupce matice hmotnosti, což nám dovolí úpravu
+		Rozdělíme zrychlení na řízená zrychlení $\bm{\dot{v}}_c$ a zrychlení spojená s poddajností $\bm{\dot{v}}_s$. Stejně rozdělíme sloupce matice hmotnosti, což nám dovolí úpravu
 		\begin{equation*}
 			\bm{M}\bm{\dot{v}} = \bm{M}_{:c} \bm{\dot{v}}_c + \bm{M}_{:s} \bm{\dot{v}}_s
 		\end{equation*}
-		Vektor pasivních silových účinků v kinematických dvojicích můžeme rozdělit na akumulační a disipační členy
+		Také vektor pasivních silových účinků v kinematických dvojicích můžeme rozdělit, a to na akumulační a disipační členy
 		\begin{equation*}
-			\bm{p} = \bm{A}\bm{q} + \bm{D}\bm{v}
+			\bm{p} = \bm{A}\bm{q} + \bm{D}\bm{\dot{q}}
 		\end{equation*}
-		S výslednou pohybovou rovnicí
-		\begin{equation*}
-			\bm{M}_{:c} \bm{\dot{v}}_c + \bm{M}_{:s} \bm{\dot{v}}_s + \bm{c} = \bm{A}\bm{q} + \bm{D}\bm{v} + \bm{B}\bm{u}
-		\end{equation*}
+		kde $\bm{q}$ jsou zobecněné parametry kinematických dvojic.
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Poddajné systémy - Poddajnost}
-		Vnímáme-li akumulační ůčinky v $i$-té kin. vazbě jako zobecněné síly způsobené deformací elementu MKP, kde uzlové posuvy jsou nahrazeny zobecněnými parametry $\bm{q}$
+		\frametitle{Poddajné systémy - Deformační síly}
+		Vnímáme-li akumulační ůčinky v $i$-té kin. vazbě jako zobecněné síly $\bm{f}_i$ způsobené deformací elementu MKP, kde uzlové posuvy jsou nahrazeny parametry $\bm{q}$
 		\begin{equation*}
+			\bm{f}_i
+			=
 			\bm{A}_i\bm{q}_i
 			=
 			\int_{V} \bm{N}_i^T  \, \bm{\sigma}_i \, dV
@@ -35,13 +34,20 @@
 	\end{frame}
 
 	\begin{frame}
-		\frametitle{Poddajné systémy - Poddajnost}
-		Když uvažujeme těleso jako tuhé, říkáme, že jeho odezva na změnu zatížení $\Delta\bm{\tau}$ je taková změna napětí $\Delta\bm{\sigma}$, která zamezí podstatné deformaci tělesa $\Delta\bm{\varepsilon} \approx \bm{0} \,,\; \bm{\dot{\varepsilon}} \approx \bm{0} \,,\; \bm{\ddot{\varepsilon}} \approx \bm{0}$
+		\frametitle{Poddajné systémy - Aproximace}
+		Když uvažujeme těleso jako tuhé, říkáme, že jeho odezva na změnu zatížení $\Delta\bm{\tau}$ je taková změna napětí $\Delta\bm{\sigma}$, která zamezí významné deformaci tělesa $\Delta\bm{\varepsilon} \approx \bm{0} \,,\; \bm{\dot{\varepsilon}} \approx \bm{0} \,,\; \bm{\ddot{\varepsilon}} \approx \bm{0}$
 		\\\vspace{1em}
-		Budeme-li chtít zanedbat okamžitý vliv poddajnosti v pohybové rovnici (na úrovni zrychlení) dosadíme $\bm{\dot{v}}_s = \bm{0}$, jehož splnění bude zajištěno fiktivní změnou ``poddajných'' parametrů $\Delta\bm{q}_s$ ($\bm{\sigma} \propto \bm{q}_s$).
+		Budeme-li chtít zanedbat okamžitý vliv poddajnosti v pohybové rovnici (na úrovni zrychlení) dosadíme $\bm{\dot{v}}_s = \bm{\ddot{q}}_s = \bm{0}$, přičemž splnění pohybových rovnic bude zajištěno fiktivní změnou ``poddajných'' parametrů $\Delta\bm{q}_s$ ($\bm{\sigma} \propto \bm{q}_s$).
 		\begin{equation*}
-			\bm{M}_{:c} \bm{\dot{v}}_c + \bm{c} = \bm{p} + \bm{A}_{:s} \Delta\bm{q}_s + \bm{B}\bm{u}
+			\bm{M}_{:c} \bm{\dot{v}}_c +
+			\underbrace{\bm{M}_{:s} \bm{\dot{v}}_s}_{\bm{0}} +
+			\bm{c} = \bm{p} + \bm{A}_{:s} \Delta\bm{q}_s + \bm{B}\bm{u}
 		\end{equation*}
+		Které také můžeme použít pro omezení očekávaného napětí
+		\begin{equation*}
+			\bm{\sigma}_{min} < \bm{E}_s\bm{N}_s(\bm{q}_s + \Delta \bm{q}_s) < \bm{\sigma}_{max}
+		\end{equation*}
+		
 	\end{frame}
 
 	\begin{frame}
@@ -49,7 +55,6 @@
 
 		\begin{itemize}
 			\item \textbf{Optimalizované parametry}\\
-			mezi optimalizované parametry zařadíme i volná zrychlení
 			\begin{equation*}
 				\bm{x} = \begin{bmatrix} \bm{u} \\ \Delta\bm{q}_s \end{bmatrix}
 			\end{equation*}
@@ -103,10 +108,9 @@
 			\begin{equation*}
 				\bm{\tau}_{eq} = \bm{M}_{:c} \bm{\dot{v}}_c + \bm{c} - \bm{p}
 			\end{equation*}
-			a
+			a $\bm{q}_{s_{min}}$ a $\bm{q}_{s_{max}}$ jsou stanoveny pomocí operátorů
 			\begin{equation*}
 				\bm{E}_i\bm{N}_i : \bm{q}_i \mapsto \bm{\sigma}_i
 			\end{equation*}
-			pomocí kterého můžeme stanovit $\bm{q}_{s_{min}}$ a $\bm{q}_{s_{max}}$
 		\end{itemize}
 	\end{frame}

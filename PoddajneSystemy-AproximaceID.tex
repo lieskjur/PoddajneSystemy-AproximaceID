@@ -1,6 +1,6 @@
 \documentclass{beamer}
 
-\title{Aproximace inverzní dynamiky poddajného systému}
+\title{Aproximace inverzní dynamiky poddajných systémů}
 \author{Juraj Lieskovský}
 \institute{ČVUT - ústav mechaniky, biomechaniky a mechatroniky}
 \date{30.5.2022}
@@ -14,10 +14,15 @@
 	\frame{\titlepage}
 
 	\include{Base}
-	\include{Overactuated}
+	% \include{Overactuated}
 	% \include{Underactuated}
 	\include{Stiffened}
 	\include{SingleStrut}
 	\include{TensegrityManipulator}
 
+	\bibliographystyle{unsrt}
+	\begin{frame}
+		\frametitle{Zdroje}
+		\bibliography{OSQP.bib,convex.bib}
+	\end{frame}
 \end{document}
